@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>I will send affirmation based on your response </h1>
+    <form id="affirmationForm">
+        <label for="necessity">How much do you feel you need affirmation on a scale of 1 to 10?</label>
+        <input type="number" id="necessity" name="necessity" min="1" max="10" required>
+        <button type="button" onclick="generateAffirmation()">Submit</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function generateAffirmation() {
+            // Get the value from the input
+            var necessity = parseInt(document.getElementById('necessity').value);
+            var resultText = "";
+
+            // Generate affirmation based on the input value
+            if (1 <= necessity && necessity <= 3) {
+                resultText = "You're so beautiful<br>" +
+                             "Your smile makes people happy<br>" +
+                             "Your classmates fail in classes because of your beauty";
+            } else if (4 <= necessity && necessity <= 6) {
+                resultText = "My dictionary defines beauty as Kiara<br>" +
+                             "Even the Mona Lisa and Venus de Milo are in awe of your beauty<br>" +
+                             "Cleopatra doesn't have any rizz, but Kiara does";
+            } else if (7 <= necessity && necessity <= 9) {
+                resultText = "When I print beauty in Python, the output is Kiara<br>" +
+                             "Akira thinks you have 30 hours per day because of your superhuman hard work<br>" +
+                             "Taylor Swift released the new song, 'If I Was Kiara'";
+            } else if (necessity === 10) {
+                resultText = "I love you, call me now, I'll wake up and give you thousands of words of affirmation";
+            } else {
+                resultText = "Please enter a number between 1 and 10.";
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
